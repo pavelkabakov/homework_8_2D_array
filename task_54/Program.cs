@@ -13,7 +13,7 @@ int[,] table = new int[5, 5];
 FillArray(table);
 Console.WriteLine("Исходный массив");
 PrintArray(table);
-Console.WriteLine("Отсортированный построчно массив");
+Console.WriteLine("Отсортированный построчно в порядке убывания массив");
 ArrayRowsSort(table);
 PrintArray(table);
 
@@ -25,22 +25,22 @@ void ArrayRowsSort(int[,] table)
         RowsSort(table, rows);
     }
 }
-// сортировка строки двумерного массива
+// сортировка строки двумерного массива в порядке убывания
 void RowsSort(int[,] table, int rows)
 {
     for (int i = 0; i < table.GetLength(1) - 1; i++)
     {
-        int minPosition = i;
+        int maxPosition = i;
         for (int j = i + 1; j < table.GetLength(1); j++)
         {
-            if (table[rows, j] < table[rows, minPosition])
+            if (table[rows, j] > table[rows, maxPosition])
             {
-                minPosition = j;
+                maxPosition = j;
             }
         }
         int temporary = table[rows, i];
-        table[rows, i] = table[rows, minPosition];
-        table[rows, minPosition] = temporary;
+        table[rows, i] = table[rows, maxPosition];
+        table[rows, maxPosition] = temporary;
 
     }
 }
@@ -58,13 +58,13 @@ void PrintArray(int[,] table)
     }
 }
 // Заполнение массива случайными числами
-void FillArray(int[,] tab)
+void FillArray(int[,] table)
 {
-    for (int rows = 0; rows < tab.GetLength(0); rows++)
+    for (int rows = 0; rows < table.GetLength(0); rows++)
     {
-        for (int columns = 0; columns < tab.GetLength(1); columns++)
+        for (int columns = 0; columns < table.GetLength(1); columns++)
         {
-            tab[rows, columns] = new Random().Next(-10, 10);
+            table[rows, columns] = new Random().Next(-10, 10);
         }
         Console.WriteLine();
     }
