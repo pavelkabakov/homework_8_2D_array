@@ -12,6 +12,7 @@ int[,] table = new int[5, 5];
 FillArray(table);
 Console.WriteLine("Исходный массив");
 PrintArray(table);
+// для теста выводим сумму элементов в строках
 for (int i = 0; i < table.GetLength(0); i++)
 {
     Console.WriteLine($"Сумма строки номер {i} = {RowsSumm(table, i)}");
