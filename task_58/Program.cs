@@ -44,10 +44,10 @@ int[,] MatrixMultiplication(int[,] matrixA, int[,] matrixB)
     {
         for (int j = 0; j < matrixB.GetLength(1); j++)
         {
-           for (int k = 0; k < matrixA.GetLength(1); k++)
-           {
-            matrixProduct[i, j] += matrixA [i, k] * matrixB [k, j];
-           }
+            for (int k = 0; k < matrixA.GetLength(1); k++)
+            {
+                matrixProduct[i, j] += matrixA[i, k] * matrixB[k, j];
+            }
         }
     }
     return matrixProduct;
